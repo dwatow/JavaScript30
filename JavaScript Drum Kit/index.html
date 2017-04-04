@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Drum Kit</title>
+    <link rel=stylesheet type="text/css" href="index.css">
+  </head>
+  <body>
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+    </div>
+
+    <script>
+      window.addEventListener('keydown', function (e) {
+        var str = '<div data-key="' + e.keyCode + '" class="key"><kbd>' + e.key + '</kbd></div>';
+        console.log(str);
+
+        // const div = document.querySelector(`div[data-key="${e.keyCode}"]`); console.log(div);
+        //
+        // div.classList.add('playing');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+.key {
+  width: 32px;
+  height: 32px;
+
+  border: solid 1px black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 5px;
+
+  transition: all 0.07s;
+}
+
+.playing {
+  width: 100px;
+}
