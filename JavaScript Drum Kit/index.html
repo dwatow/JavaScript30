@@ -6,28 +6,115 @@
     <link rel=stylesheet type="text/css" href="index.css">
   </head>
   <body>
+    <div data-key="81" class="key">
+      <kbd>q</kbd>
+    </div>
+    <div data-key="87" class="key">
+      <kbd>w</kbd>
+    </div>
+    <div data-key="69" class="key">
+      <kbd>e</kbd>
+    </div>
+    <div data-key="82" class="key">
+      <kbd>r</kbd>
+    </div>
+    <div data-key="84" class="key">
+      <kbd>t</kbd>
+    </div>
+    <div data-key="89" class="key">
+      <kbd>y</kbd>
+    </div>
+    <div data-key="85" class="key">
+      <kbd>u</kbd>
+    </div>
+    <div data-key="73" class="key">
+      <kbd>i</kbd>
+    </div>
+    <div data-key="79" class="key">
+      <kbd>o</kbd>
+    </div>
+    <div data-key="80" class="key">
+      <kbd>p</kbd>
+    </div>
     <div data-key="65" class="key">
-      <kbd>A</kbd>
+      <kbd>a</kbd>
     </div>
     <div data-key="83" class="key">
-      <kbd>S</kbd>
+      <kbd>s</kbd>
     </div>
     <div data-key="68" class="key">
-      <kbd>D</kbd>
+      <kbd>d</kbd>
     </div>
     <div data-key="70" class="key">
-      <kbd>F</kbd>
+      <kbd>f</kbd>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>g</kbd>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>h</kbd>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>j</kbd>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>k</kbd>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>l</kbd>
+    </div>
+    <div data-key="186" class="key">
+      <kbd>;</kbd>
+    </div>
+    <div data-key="90" class="key">
+      <kbd>z</kbd>
+    </div>
+    <div data-key="88" class="key">
+      <kbd>x</kbd>
+    </div>
+    <div data-key="67" class="key">
+      <kbd>c</kbd>
+    </div>
+    <div data-key="86" class="key">
+      <kbd>v</kbd>
+    </div>
+    <div data-key="66" class="key">
+      <kbd>b</kbd>
+    </div>
+    <div data-key="78" class="key">
+      <kbd>n</kbd>
+    </div>
+    <div data-key="77" class="key">
+      <kbd>m</kbd>
+    </div>
+    <div data-key="188" class="key">
+      <kbd>,</kbd>
+    </div>
+    <div data-key="190" class="key">
+      <kbd>.</kbd>
+    </div>
+    <div data-key="191" class="key">
+      <kbd>/</kbd>
     </div>
 
     <script>
-      window.addEventListener('keydown', function (e) {
-        var str = '<div data-key="' + e.keyCode + '" class="key"><kbd>' + e.key + '</kbd></div>';
-        console.log(str);
+      function growUp(e) {
+        const div = document.querySelector(`div[data-key="${e.keyCode}"]`);
+        if (!div)
+          return;
 
-        // const div = document.querySelector(`div[data-key="${e.keyCode}"]`); console.log(div);
-        //
-        // div.classList.add('playing');
-      });
+        div.currtneTime = 0;
+        div.classList.add('playing');
+      }
+
+      function removeTransition(e) {
+        this.classList.remove('playing');
+        // if (e.propertyName !== 'transform')   return;
+      }
+
+      const key = document.querySelectorAll('.key');
+      key.forEach(key => key.addEventListener('transitionend', removeTransition));
+      window.addEventListener('keydown', growUp);
     </script>
   </body>
 </html>
