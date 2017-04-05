@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .clock {
+        width: 190px;
+        height: 190px;
+        border: solid 12px #8c8c8c;
+        border-radius: 50%;
+
+        position: relative;
+      }
+      .hour_hand,
+      .min_hand,
+      .sec_hand {
+
+        border-style: solid;
+        border-radius: 50px;
+
+        transform: rotate(270deg);
+      }
+
+      .hour_hand {
+        position: absolute;
+        top: calc(50% - 4px);
+        left: calc(50% - 4px);
+        transform-origin: calc(0px + 5px);
+
+        width: 70px;
+        border-color: black;
+        border-width: thick;
+      }
+
+      .min_hand {
+        position: absolute;
+        top: calc(50% - 2px);
+        left: calc(50% - 2px);
+        transform-origin: calc(0px + 3px);
+
+        width: 60px;
+        border-color: blue;
+        border-width: medium;
+      }
+
+      .sec_hand {
+        position: absolute;
+        top: calc(50%);
+        left: calc(50%);
+        transform-origin: calc(0px + 1px);
+
+        width: 80px;
+        border-color: red;
+        border-width: thin;
+      }
+
+      .center {
+        border: 1px solid black;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 12px;
+        margin-top: calc(-12px/2);
+        margin-left: calc(-12px/2);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="hour_hand"></div>
+      <div class="min_hand"></div>
+      <div class="sec_hand"></div>
+      <div class="center"></div>
+    </div>
+  </body>
+</html>
