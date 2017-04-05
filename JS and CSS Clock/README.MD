@@ -5,7 +5,7 @@ transform: rotate(7deg);/*變化: 旋轉(7°);*/
 ```
 
 ```css=
-transition-timing-function
+transition-timing-function: /*變化的函數，可以設成有回彈效果*/
 ```
 
 ## window object
