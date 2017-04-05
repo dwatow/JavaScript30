@@ -12,6 +12,10 @@ funtion (key) {
 ```javascript=
 key => key.addEventListener('transitionend', removeTransition)
 ```
+## Window方法
+
+jsref: [The Window Object](https://www.w3schools.com/jsref/obj_window.asp)
+- [`setTimeout(function, ms)`](https://www.w3schools.com/jsref/met_win_settimeout.asp) 設定「執行一次」的function與延遲時間
 
 ## DOM方法
 
