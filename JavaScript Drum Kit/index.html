@@ -98,23 +98,24 @@
     </div>
 
     <script>
-      function growUp(e) {
+      function addPlaying(e) {
         const div = document.querySelector(`div[data-key="${e.keyCode}"]`);
         if (!div)
           return;
 
         div.currtneTime = 0;
-        div.classList.add('playing');
+        // div.classList.add('playing');
+        div.classList.toggle('playing', true);
       }
 
-      function removeTransition(e) {
-        this.classList.remove('playing');
-        // if (e.propertyName !== 'transform')   return;
+      function resetKeybox(e) {
+        // this.classList.remove('playing');
+        this.classList.toggle('playing', false);
       }
 
-      const key = document.querySelectorAll('.key');
-      key.forEach(key => key.addEventListener('transitionend', removeTransition));
-      window.addEventListener('keydown', growUp);
+      const keys = document.querySelectorAll('.key');
+      keys.forEach(key => key.addEventListener('transitionend', resetKeybox));
+      window.addEventListener('keydown', addPlaying);
     </script>
   </body>
 </html>
