@@ -81,10 +81,12 @@
       const minHand = document.querySelector('.min_hand');
       const secHand = document.querySelector('.sec_hand');
 
-      const now = new Date();
-      hourHand.style.transform = `rotate(${timeToDeg(now.getHours() * 5)}deg)`;
-      minHand.style.transform = `rotate(${timeToDeg(now.getMinutes())}deg)`;
-      secHand.style.transform = `rotate(${timeToDeg(now.getSeconds())}deg)`;
+      function initialClock() {
+        const now = new Date();
+        hourHand.style.transform = `rotate(${timeToDeg(now.getHours() * 5)}deg)`;
+        minHand.style.transform = `rotate(${timeToDeg(now.getMinutes())}deg)`;
+        secHand.style.transform = `rotate(${timeToDeg(now.getSeconds())}deg)`;
+      }
 
       function timeToDeg(time) {
         return time * 6 - 90;
@@ -97,23 +99,23 @@
 
         const curr_deg = transform.substring(('rotate(').length, transform.indexOf('deg)'));
         const new_deg = Number(curr_deg) + Number(unitDeg);
-        console.log('rotate(' + new_deg + 'deg)');
         return 'rotate(' + new_deg + 'deg)';
       }
 
       function setTime() {
         const now = new Date();
-        hourHand.style.transform = `rotate(${timeToDeg(now.getHours() * 5)}deg)`;
-        minHand.style.transform = `rotate(${timeToDeg(now.getMinutes())}deg)`;
+        // hourHand.style.transform = `rotate(${timeToDeg(now.getHours() * 5)}deg)`; minHand.style.transform = `rotate(${timeToDeg(now.getMinutes())}deg)`;
 
-        // hourHand.style.transform = `${updateRotate(hourHand.style.transform, 5)}`; minHand.style.transform = `${updateRotate(minHand.style.transform, 1)}`;
+        if (now.getHours() === 0)
+          hourHand.style.transform = `${updateRotate(hourHand.style.transform, 5)}`;
+        if (now.getMinutes() === 0)
+          minHand.style.transform = `${updateRotate(minHand.style.transform, 1)}`;
+
         secHand.style.transform = `${updateRotate(secHand.style.transform, 6)}`;
-
-        // console.log(timeToDeg(now.getSeconds())); console.log(sec);
       }
 
+      initialClock();
       setInterval(setTime, 1000);
-      // setTimeout(setTime, 1000); setTimeout(setTime, 2000);
     </script>
   </body>
 </html>
