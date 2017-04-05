@@ -29,7 +29,7 @@ jsref: [The HTML DOM Document Object](https://www.w3schools.com/jsref/dom_obj_do
 jsref: [The HTML DOM Element Object](https://www.w3schools.com/jsref/dom_obj_all.asp)
 
 - `element.addEventListener()` 加一個事件到Element上
-- `element.classList` 回傳陣列，element上的class屬性的內容
+- `element.classList` 回傳NodeList，element上的class屬性的內容
 
 ## Event Object 方法
 
