@@ -168,11 +168,11 @@
     console.table(inventors_sort_birthday);
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
-    const all_inventors_lived_year = inventors.reduce(function(total, everyone) {
+    const all_inventors_lived_year = inventors.reduce((total, everyone) => {
       return total + (everyone.passed - everyone.year);
     }, 0);
     console.log("4. How many years did all the inventors live?");
-    console.table(all_inventors_lived_year);
+    console.log(all_inventors_lived_year);
     // 5. Sort the inventors by years lived
     inventors.forEach(x => x.lived = (x.passed - x.year));
     const inventors_sort_lived = inventors.sort(function(a, b) {
@@ -190,7 +190,7 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
     function lastName(person_name) {
-      return person_name.substring(person_name.indexOf(', ') + (', ').length, person_name.length);
+      return person_name.substring(person_name.indexOf(', '));
     }
 
     const people_sort_last_name = people.sort(function(a, b) {
@@ -200,9 +200,23 @@
     console.log(people_sort_last_name);
     // 8. Reduce Exercise
     // Sum up the instances of each of these
+
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
-    const sum_data = data.reduce((total, word) => (total += word.length), 0);
+
+    var histogram = {};
+    data.map(x => {
+      if (histogram[x]) histogram[x] += 1;
+      else histogram[x] = 1;
+    });
+    //---------------------------------
+    const sum_data = data.reduce((total, word) => {
+      if (!total[word]) total[word] = 0;
+      total[word]++;
+      return total;
+    }, {});
+
     console.log("8. sort Exercise, Sum up the instances of each of these");
+    console.log(histogram);
     console.log(sum_data);
 
     </script>
