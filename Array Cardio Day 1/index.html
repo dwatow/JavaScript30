@@ -89,68 +89,6 @@
       'Blair, Tony', 'Blake, William'
     ];
 
-    const boulevardsInParis = {
-      '': [
-        "Boulevards of Paris",
-        "City walls of Paris",
-        "Thiers wall",
-        "Wall of Charles V",
-        "Wall of Philip II Augustus"
-      ],
-      '*': [
-        "City gates of Paris",
-        "Haussmann's renovation of Paris",
-        "Boulevards of the Marshals"
-      ],
-      'A': [
-        "Boulevard Auguste-Blanqui"
-      ],
-      'B': [
-        "Boulevard Barbès",
-        "Boulevard Beaumarchais",
-        "Boulevard de l'Amiral-Bruix"
-      ],
-      'C': [
-        "Boulevard des Capucines",
-        "Boulevard de la Chapelle",
-        "Boulevard de Clichy",
-        "Boulevard du Crime"
-      ],
-      'H': [
-        "Boulevard Haussmann",
-        "Boulevard de l'Hôpital"
-      ],
-      'I': [
-        "Boulevard des Italiens"
-      ],
-      'M': [
-        "Boulevard de la Madeleine",
-        "Boulevard de Magenta",
-        "Boulevard Montmartre",
-        "Boulevard du Montparnasse"
-      ],
-      'R': [
-        "Boulevard Raspail",
-        "Boulevard Richard-Lenoir",
-        "Boulevard de Rochechouart"
-      ],
-      'S': [
-        "Boulevard Saint-Germain",
-        "Boulevard Saint-Michel",
-        "Boulevard de Sébastopol",
-        "Boulevard de Strasbourg"
-      ],
-      'T': [
-        "Boulevard du Temple"
-      ],
-      'V': [
-        "Boulevard Voltaire"
-      ],
-      'Z': [
-        "Boulevard de la Zone"
-      ]
-    };
-
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
     const born_1500_inventors = inventors.filter(everyone => everyone.year >= 1500 && everyone.year < 1600);
@@ -182,11 +120,11 @@
     console.table(inventors_sort_lived);
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-    for (key in boulevardsInParis) {
-      boulevardsInParis[key] = boulevardsInParis[key].filter(every_road => every_road.indexOf('de') != -1);
-    }
-    console.log("6. create a list of Boulevards in Paris that contain 'de' anywhere in the name");
-    console.table(boulevardsInParis);
+
+    const category = document.querySelector('.mw-category');
+    const links = Array.from(category.querySelectorAll('a'));
+    const de_boulevards_in_paris = links.map(x => x.textContent).filter(x => x.includes('de'));
+
     // 7. sort Exercise
     // Sort the people alphabetically by last name
     function lastName(person_name) {

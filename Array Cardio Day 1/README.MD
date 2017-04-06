@@ -4,6 +4,15 @@
 jsref: [JavaScript Array Reference](https://www.w3schools.com/jsref/jsref_obj_array.asp)
 - [`filter()`](https://www.w3schools.com/jsref/jsref_filter.asp) Creates a new array with every element in an array that pass a test
 - [`reduce()`](https://www.w3schools.com/jsref/jsref_reduce.asp) Reduce the values of an array to a single value (going left-to-right)
+    - `reduce(function(total, everyone, currIndex, currArray), initValue)`
+        - total, 跨元素的暫存變數
+        - everyone, 每一個元素
+        - currIndex, 目前的索引值
+            - 有給initValue就0起始, 初始值自訂
+            - 沒有initValue就1起始, 初始值為第一個元素
+        - currArray, 整個陣列
+        - initValue, 初始值
+
 - [`Array.sort()`](https://www.w3schools.com/jsref/jsref_sort.asp) 用數字排序
 ```javascript=
 b.sort(function(a, b){ return b - a;});//[576, 56, 12, 9, 8, 8, 5, 3, 1, 0]
@@ -15,3 +24,5 @@ b.sort(function(a, b){ return a - b;});//[0, 1, 3, 5, 8, 8, 9, 12, 56, 576]
 > - 用`>`或`<`回傳`true`, `false`
 >
 >[參考資料](http://stackoverflow.com/questions/1063007/how-to-sort-an-array-of-integers-correctly)
+- `Array.from(NodeList)` 將NoteList轉成Array
+- `String.includes('keywork')` 找字串是否有包含`keywork`
