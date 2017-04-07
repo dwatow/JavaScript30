@@ -30,6 +30,7 @@
     .panels {
       min-height: 100vh;
       overflow: hidden;
+      display: flex;
     }
 
     .panel {
@@ -44,6 +45,11 @@
       font-size: 20px;
       background-size: cover;
       background-position: center;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
     .panel1 {
@@ -70,6 +76,26 @@
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .panel>*:first-child {
+      transform: translateY(-100%);
+    }
+
+    .panel.open-active>*:first-child {
+      transform: translateY(0);
+    }
+
+    .panel>*:last-child {
+      transform: translateY(100%);
+    }
+
+    .panel.open-active>*:last-child {
+      transform: translateY(0);
     }
 
     .panel p {
@@ -85,6 +111,7 @@
 
     .panel.open {
       font-size: 40px;
+      flex: 5;
     }
 
     </style>
@@ -119,7 +146,22 @@
     </div>
 
     <script>
+    const panels = document.querySelectorAll('.panel');
+    panels.forEach(panel => panel.addEventListener('click', function(e) {
+      this.classList.toggle('open');
+      (function(e) {
+        setTimeout(function() {
+          e.classList.toggle('open-active');
+        }, 1000)
+      })(this);
+    }));
 
+    // panels.forEach(panel => panel.addEventListener("transitionend", function(e) {
+    //   console.log(e.propertyName);
+    //   if (e.propertyName.includes('font')) {
+    //     e.classList.toggle('open-active');
+    //   }
+    // }));
 
     </script>
 
