@@ -115,18 +115,27 @@
       }
 
       function showSuggestions() {
-        let html = '';
-        const matchArray = searchMatch(cities, this.value)
-        matchArray.map(place => {
-          const list_item = '<li>' + place.city + ' ' + place.state + '</li>';
-          html += list_item;
-        });
+
+        this.addHl = function(str) {
+          const regex = new RegExp(this.value, 'gi');
+          return str.replace(regex, `<span class="hl">${this.value}</span>`)
+        }
+
+        const matchArray = searchMatch(cities, this.value);
+        const html = matchArray.map(place => {
+          return `
+            <li>
+              <span class="name">${this.addHl(place.city)}, ${this.addHl(place.state)}</span>
+              <span class="population">${place.population}</span>
+            </li>
+          `;
+        }).join('');
         suggestions.innerHTML = html;
       }
 
       const searchInput = document.querySelector('.search');
       const suggestions = document.querySelector('.suggestions');
-      searchInput.addEventListener('keydown', showSuggestions);
+      searchInput.addEventListener('keyup', showSuggestions);
 
     </script>
   </body>
