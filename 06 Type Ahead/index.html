@@ -115,13 +115,13 @@
       }
 
       function showSuggestions() {
-        let suggestions_list = '';
-        searchMatch(cities, this.value).map(place => {
+        let html = '';
+        const matchArray = searchMatch(cities, this.value)
+        matchArray.map(place => {
           const list_item = '<li>' + place.city + ' ' + place.state + '</li>';
-          suggestions_list += list_item;
+          html += list_item;
         });
-        // console.log(suggestions_list);
-        suggestions.innerHTML = suggestions_list;
+        suggestions.innerHTML = html;
       }
 
       const searchInput = document.querySelector('.search');
