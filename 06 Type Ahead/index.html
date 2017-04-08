@@ -107,17 +107,17 @@
         .then(response => response.json())
         .then(json_data => cities.push(...json_data));
 
-      function searchMatch(cities, key_word) {
+      function searchMatch(cities, regex) {
         return cities.filter(place => {
-          const regex = new RegExp(key_word, 'gi');
           return place.city.match(regex) || place.state.match(regex);
         });
       }
 
       function showSuggestions() {
-        const matchArray = searchMatch(cities, this.value);
+        const regex = new RegExp(this.value, 'gi');
+
+        const matchArray = searchMatch(cities, regex);
         const html = matchArray.map(place => {
-          const regex = new RegExp(this.value, 'gi');
           const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
           const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
           return `
