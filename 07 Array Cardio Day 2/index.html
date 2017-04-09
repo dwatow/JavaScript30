@@ -50,15 +50,15 @@
       console.log(comment823423);
 
       // Array.prototype.findIndex()
-      const indexOfComment823423 = comments.findIndex(comment => comment.id == '823423');
-      console.log(indexOfComment823423);
 
       // Find the comment with this ID
       // delete the comment with the ID of 823423
       console.table(comments)
       const index823423 = comments.findIndex(comment => comment.id == '823423');
-      delete comments[index823423];
+      // delete comments[index823423];
+      comments.splice(index823423, 1);
       console.table(comments);
+
 
   </script>
   </body>
