@@ -22,10 +22,14 @@
       isDrawing = false;
     })
 
+
     canvas.addEventListener('mousemove', function(e){
       lastX = e.clientX;
       lastY = e.clientY;
       if (isDrawing) {
+        color = '#' + (Number('0x' + ctx.strokeStyle.slice(1)) + parseInt(Math.random() * 10)).toString(16);
+        console.log(color);
+        ctx.strokeStyle = color;
         ctx.lineTo(lastX, lastY);
         ctx.stroke();
       }
