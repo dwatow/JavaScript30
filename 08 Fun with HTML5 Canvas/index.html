@@ -24,8 +24,8 @@
     })
 
     let hue = 0;
-
     let direction = false;
+    ctx.globalCompositeOperation = 'multiply';
 
     function draw(e){
       if (isDrawing) {
@@ -49,7 +49,7 @@
 
         if (direction)
           ctx.lineWidth++;
-        else 
+        else
           ctx.lineWidth--;
       }
 
