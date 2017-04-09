@@ -23,18 +23,19 @@
     })
 
     function draw(e){
-      lastX = e.clientX;
-      lastY = e.clientY;
       if (isDrawing) {
+        ctx.beginPath();
         color = '#' + (Number('0x' + ctx.strokeStyle.slice(1)) + parseInt(Math.random() * 10)).toString(16);
         console.log(color);
         ctx.strokeStyle = color;
-        ctx.lineTo(lastX, lastY);
+
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
       }
-      else {
-        ctx.moveTo(lastX, lastY);
-      }
+
+      lastX = e.offsetX; //mouse real position
+      lastY = e.offsetY; //mouse real position
     }
 
     canvas.addEventListener('mousemove', draw);
