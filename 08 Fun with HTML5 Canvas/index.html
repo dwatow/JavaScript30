@@ -12,6 +12,7 @@
     ctx.strokeStyle = '#BADA55'; // line color
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
+    ctx.lineWidth = 100;
     let isDrawing = false;
     let lastX = lastY = 0
 
@@ -22,16 +23,34 @@
       isDrawing = false;
     })
 
+    let hue = 0;
+
+    let direction = false;
+
     function draw(e){
       if (isDrawing) {
         ctx.beginPath();
-        color = '#' + (Number('0x' + ctx.strokeStyle.slice(1)) + parseInt(Math.random() * 10)).toString(16);
+
+        color = `hsl(${hue}, 100%, 50%)`;
+        hue ++;
+        if (hue > 360)
+          hue = 0;
+
         console.log(color);
         ctx.strokeStyle = color;
 
         ctx.moveTo(lastX, lastY);
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
+
+        if (ctx.lineWidth >= 300 || ctx.lineWidth <= 1) {
+          direction = !direction;
+        }
+
+        if (direction)
+          ctx.lineWidth++;
+        else 
+          ctx.lineWidth--;
       }
 
       lastX = e.offsetX; //mouse real position
