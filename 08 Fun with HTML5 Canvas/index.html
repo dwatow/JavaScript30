@@ -13,6 +13,7 @@
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     let isDrawing = false;
+    let lastX = lastY = 0
 
     canvas.addEventListener('mousedown', function(e){
       isDrawing = true;
@@ -21,11 +22,15 @@
       isDrawing = false;
     })
 
-
     canvas.addEventListener('mousemove', function(e){
+      lastX = e.clientX;
+      lastY = e.clientY;
       if (isDrawing) {
-        ctx.lineTo(e.clientX, e.clientY);
+        ctx.lineTo(lastX, lastY);
         ctx.stroke();
+      }
+      else {
+        ctx.moveTo(lastX, lastY);
       }
     })
     </script>
