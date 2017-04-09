@@ -22,8 +22,7 @@
       isDrawing = false;
     })
 
-
-    canvas.addEventListener('mousemove', function(e){
+    function draw(e){
       lastX = e.clientX;
       lastY = e.clientY;
       if (isDrawing) {
@@ -36,7 +35,9 @@
       else {
         ctx.moveTo(lastX, lastY);
       }
-    })
+    }
+
+    canvas.addEventListener('mousemove', draw);
     </script>
     <style>
       html,
