@@ -8,12 +8,25 @@
     <canvas id="draw" width="800" height="800"></canvas>
     <script>
     var canvas = document.getElementById("draw");
-    var context = canvas.getContext("2d");
-    context.moveTo(0,0);
+    var ctx = canvas.getContext("2d");
+    ctx.strokeStyle = '#BADA55'; // line color
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    let isDrawing = false;
+
+    canvas.addEventListener('mousedown', function(e){
+      isDrawing = true;
+    })
+    canvas.addEventListener('mouseup', function(e){
+      isDrawing = false;
+    })
+
 
     canvas.addEventListener('mousemove', function(e){
-      context.lineTo(e.clientX, e.clientY);
-      context.stroke();
+      if (isDrawing) {
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.stroke();
+      }
     })
     </script>
     <style>
