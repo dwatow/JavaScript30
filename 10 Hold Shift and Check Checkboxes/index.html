@@ -109,31 +109,27 @@
       }});
 
 
-      let checked = false;
-      let oneChecked = false;
+      let lastChecked;
+      function checkIt (e) {
+        if (e.shiftKey && this.checked) {
+        let inBetween = false;
+          items.forEach(checkbox => {
+              if (checkbox === this || checkbox === lastChecked) { //head and lastest
+                inBetween = !inBetween;
+              }
 
-      function autoChecked () {
-        if (!isShiftHold) return;
-        console.log('-------------');
-        const items = document.querySelectorAll('.item');
-        const arrayItems = [...items];
-        arrayItems.forEach(item => {
-          const input = item.querySelector('input');
-          if (input.checked === true) {
-            checked = !checked;
-            input.checked = true;
-          }
-          else {
-            input.checked = checked;
-          }
-
-          console.log(checked);
-
-        });
+              if (inBetween){
+                console.log(this);
+                checkbox.checked = true;
+              }
+          });
+        }
+        lastChecked = this;
       }
 
-      const inbox = document.querySelector('.inbox');
-      inbox.addEventListener('click', autoChecked);
+      // const inbox = document.querySelector('.inbox');
+      const items = document.querySelectorAll('input[type="checkbox"]');
+      items.forEach(item => item.addEventListener('click', checkIt));
 
     </script>
   </body>
