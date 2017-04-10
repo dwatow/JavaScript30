@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('just console.log');
+
+    console.log('hello');
+
+    // Interpolated
+    console.log('var in log by %s');
+    console.log('hello %s', 'str');
+
+      // ES6 back-ticks
+
+    var a = 'ES6';
+    console.log(`hello ${a}`);
+
+    // Styled
+    console.log('style in log by %c');
+
+    console.log("%cDon't do this", 'font-size: 48pt; color: red;');
+
+    // warning!
+    console.log('console.warn');
+
+    console.warn('Oh Nooo');
+
+    // Error :|
+    console.log('console.error');
+
+    console.error('Oh Nooo');
+
+    // Info
+    console.log('console.info');
+
+    console.info('this is info');
+
+    // Testing
+    // Assert
+    console.log('console.assert');
+
+    console.assert(1===1, 'this is wronign');
+    console.assert(1===2, 'this is wronign');
+
+    // clearing
+    // 清掉之前印出的東西
+    console.log('console.clear');
+
+    // console.clear();
+
+    // Viewing DOM Elements
+    // 印出 可展開的node
+    console.log('console.dir');
+
+    const p = document.querySelector('p');
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+    // log群組化印出
+    console.log('console.group');
+
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`); //預設展開
+      //console.groupCollapsed(`${dog.name}`); //預設縮起來
+      console.log(`${dog.name}`);
+      console.log(`${dog.age}`);
+      console.groupEnd(`${dog.name}`);
+    });
+
+    // counting
+    // 顯示並且計數出現字數
+    console.log('console.count');
+
+    console.count('aaaaaa');
+    console.count('bbbbbb');
+    console.count('aaaaaa');
+    console.count('bbbbbb');
+    console.count('aaaaaa');
+    console.count('bbbbbb');
+
+    // timing
+    console.log('console.time');
+
+    console.time('fetching data');
+    fetch('https://api.github.com/users/webos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+    console.log('console.log');
+    console.table(dogs);
+
+  </script>
+  </body>
+</html>
