@@ -1,0 +1,21 @@
+直接看code就知道了!!!
+
+- Regular
+- Interpolated
+  - ES6 back-ticks
+- Styled
+- warning!
+- Error :|
+- Info
+- Testing
+- Assert
+- clearing 清掉之前印出的東西
+- console.clear();
+- Viewing DOM Elements 印出 可展開的node
+- Grouping together log群組化印出
+  -預設展開
+  -預設縮起來
+- counting 顯示並且計數出現字數
+  -開始, 結束 內容要相同
+- timing 計算時間
+  -開始, 結束 內容要相同
