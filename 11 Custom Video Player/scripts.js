@@ -27,6 +27,7 @@ video_application.addEventListener('click', switchPlayAndPause);
 
 //play button
 const play_or_pause_ctrl = document.querySelector('.player__button[title="Toggle Play"]');
+play_or_pause_ctrl.textContent = '[]';
 play_or_pause_ctrl.addEventListener('click', switchPlayAndPause);
 
 //video event update icon
