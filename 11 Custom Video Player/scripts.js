@@ -1,5 +1,5 @@
 function switchPlayAndPause() {
-	const ctrl = document.querySelector('.player__button');
+	const ctrl = document.querySelector('.player__button[title="Toggle Play"]');
 
 	if(video_application.paused) {
 		video_application.play();
@@ -17,7 +17,7 @@ const video_application = document.querySelector('.player__video');
 video_application.addEventListener('click', switchPlayAndPause);
 
 //play button
-const play_or_pause_ctrl = document.querySelector('.player__button');
+const play_or_pause_ctrl = document.querySelector('.player__button[title="Toggle Play"]');
 play_or_pause_ctrl.addEventListener('click', switchPlayAndPause);
 
 //process
@@ -40,12 +40,12 @@ video_application.setProcess = function (percen_num) {
 // initial process
 const process = document.querySelector('.progress__filled');
 process.style.flexBasis = '0%';
+video_application.currentTime = 0;
 
 //show
 setInterval(function () {
 	let process_watched = document.querySelector('.progress__filled');
 	process_watched.style.flexBasis = video_application.getProcess();
-	console.log('currentTime: ', video_application.getProcess());
 }, 1000);
 
 //change
@@ -58,16 +58,37 @@ function changeProcess(e) {
 
 const process_all = document.querySelector('.progress');
 process_all.addEventListener('click', changeProcess);
-// process_all.addEventListener('mousemove', changeProcess);
 
 
-//volume
+//range ctrl
+function changeRange() {
+	video_application[this.name] = this.value;
+}
 
 // initial volume
-function changeVolume() {
-	console.log(video_application.volume);
-}
-const volume_ctrl = document.querySelector('input[name=volume]');
-volume_ctrl.value = 0;
-volume_ctrl.addEventListener('change', changeVolume);
-volume_ctrl.addEventListener('mousemove', changeVolume);
+video_application.volume = 0.5;
+// initial playbackRate
+video_application.playbackRate = 1;
+// playbackRate
+const range_ctrls = document.querySelectorAll('.player__slider');
+range_ctrls.forEach(ctrl => {
+	ctrl.addEventListener('change', changeRange);
+	ctrl.addEventListener('mousemove', changeRange);
+});
+
+//player__button add 10s
+const jump_sec_ctrls = document.querySelectorAll('.player__button');
+jump_sec_ctrls.forEach(ctrl => {
+	ctrl.addEventListener('click', () => {
+		if(!ctrl.title) {
+			const newTime = video_application.currentTime + Number(ctrl.dataset.skip);
+			// const str = `currentTime: ${video_application.currentTime} + ctrl.dataset.skip: ${Number(ctrl.dataset.skip)} = ${newTime}`;
+			// console.log(str);
+			video_application.currentTime = newTime;
+		}
+	});
+});
+
+// setInterval(() => {
+// 	console.log(video_application.currentTime);
+// }, 1000);
