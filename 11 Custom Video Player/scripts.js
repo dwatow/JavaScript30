@@ -1,3 +1,4 @@
+//click view play and pause
 function switchPlayAndPause() {
 	const ctrl = document.querySelector('.player__button[title="Toggle Play"]');
 
@@ -10,7 +11,14 @@ function switchPlayAndPause() {
 		ctrl.textContent = '||';
 	}
 }
+const video_application = document.querySelector('.player__video');
+const play_or_pause_ctrl = document.querySelector('.player__button[title="Toggle Play"]');
 
+//play button
+video_application.addEventListener('click', switchPlayAndPause);
+play_or_pause_ctrl.addEventListener('click', switchPlayAndPause);
+
+//video event update icon
 function updateIcon() {
 	if(video_application.paused) {
 		this.textContent = '>';
@@ -19,46 +27,24 @@ function updateIcon() {
 		this.textContent = '||';
 	}
 }
-
-
-//click view play and pause
-const video_application = document.querySelector('.player__video');
-video_application.addEventListener('click', switchPlayAndPause);
-
-//play button
-const play_or_pause_ctrl = document.querySelector('.player__button[title="Toggle Play"]');
-play_or_pause_ctrl.textContent = '[]';
-play_or_pause_ctrl.addEventListener('click', switchPlayAndPause);
-
-//video event update icon
 video_application.addEventListener('play', updateIcon);
 video_application.addEventListener('pause', updateIcon);
+play_or_pause_ctrl.textContent = '[]';
 
 //process
-video_application.getProcess = function () {
-	//value to view to
-	return(video_application.currentTime / video_application.duration * 100)
-		.toPrecision(2) + '%';
-}
-
 // initial process
 const process = document.querySelector('.progress__filled');
 process.style.flexBasis = '0%';
 video_application.currentTime = 0;
 
 //show
-setInterval(function () {
-	let process_watched = document.querySelector('.progress__filled');
-	process_watched.style.flexBasis = video_application.getProcess();
-}, 1000);
-
-//change
 function updateProcessView(e) {
-	const currWatched = ((e.layerX / process_all.clientWidth) * 100)
+	const currWatched = ((video_application.currentTime / video_application.duration) * 100)
 		.toPrecision(2) + '%';
 	process.style.flexBasis = currWatched;
 }
 
+//change
 function changeProcess(e) {
 	const currWatched = (e.layerX / process_all.clientWidth) * video_application.duration;
 	video_application.currentTime = currWatched;
@@ -90,6 +76,7 @@ range_ctrls.forEach(ctrl => {
 function skip() {
 	video_application.currentTime += Number(this.dataset.skip);
 }
+
 const jump_sec_ctrls = document.querySelectorAll('[data-skip]');
 jump_sec_ctrls.forEach(ctrl =>
 	ctrl.addEventListener('click', skip)
