@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    const pressed = [];
+    const secretCode = 'wesbos';
+      window.addEventListener('keydown', (e) => {
+        pressed.push(e.key);
+
+        // console.log(pressed.join(''));
+
+        let str1 = `secretCode.length: ${secretCode.length}, -secretCode.length-1 : ${-secretCode.length-1}`;
+        let str2 = `pressed.length: ${pressed.length}, secretCode.length: ${secretCode.length}, pressed.length - secretCode.length: ${pressed.length - secretCode.length}`;
+        let str3 = [0, pressed.length - secretCode.length];
+          // console.log(str1);
+          // console.log(str2);
+        console.log(str3);
+        pressed.splice(-secretCode.length-1, pressed.length - secretCode.length);
+
+        console.log(pressed);
+
+
+        if (pressed.join('').includes(secretCode)){
+          console.log('ok');
+          // cornify_add();
+        }
+        else {
+          if (pressed.length === secretCode.length || e.key === 'Enter') {
+            pressed.length = 0;
+          }
+          console.log('ng');
+        }
+      });
+    </script>
+  </body>
+</html>
