@@ -91,11 +91,13 @@ range_ctrls.forEach(ctrl => {
 });
 
 //player__button add 10s
+function skip() {
+	video_application.currentTime += Number(this.dataset.skip);
+}
 const jump_sec_ctrls = document.querySelectorAll('[data-skip]');
 jump_sec_ctrls.forEach(ctrl =>
-	ctrl.addEventListener('click', () =>
-		video_application.currentTime = video_application.currentTime + Number(ctrl.dataset.skip)
-	));
+	ctrl.addEventListener('click', skip)
+);
 
 // setInterval(() => {
 // 	console.log(video_application.currentTime);
