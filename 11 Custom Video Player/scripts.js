@@ -11,6 +11,15 @@ function switchPlayAndPause() {
 	}
 }
 
+function updateIcon() {
+	if(video_application.paused) {
+		this.textContent = '>';
+	}
+	else {
+		this.textContent = '||';
+	}
+}
+
 
 //click view play and pause
 const video_application = document.querySelector('.player__video');
@@ -19,6 +28,10 @@ video_application.addEventListener('click', switchPlayAndPause);
 //play button
 const play_or_pause_ctrl = document.querySelector('.player__button[title="Toggle Play"]');
 play_or_pause_ctrl.addEventListener('click', switchPlayAndPause);
+
+//video event update icon
+video_application.addEventListener('play', updateIcon);
+video_application.addEventListener('pause', updateIcon);
 
 //process
 video_application.getProcess = function () {
