@@ -77,17 +77,11 @@ range_ctrls.forEach(ctrl => {
 });
 
 //player__button add 10s
-const jump_sec_ctrls = document.querySelectorAll('.player__button');
-jump_sec_ctrls.forEach(ctrl => {
-	ctrl.addEventListener('click', () => {
-		if(!ctrl.title) {
-			const newTime = video_application.currentTime + Number(ctrl.dataset.skip);
-			// const str = `currentTime: ${video_application.currentTime} + ctrl.dataset.skip: ${Number(ctrl.dataset.skip)} = ${newTime}`;
-			// console.log(str);
-			video_application.currentTime = newTime;
-		}
-	});
-});
+const jump_sec_ctrls = document.querySelectorAll('[data-skip]');
+jump_sec_ctrls.forEach(ctrl =>
+	ctrl.addEventListener('click', () =>
+		video_application.currentTime = video_application.currentTime + Number(ctrl.dataset.skip)
+	));
 
 // setInterval(() => {
 // 	console.log(video_application.currentTime);
