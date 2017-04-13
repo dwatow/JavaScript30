@@ -41,16 +41,6 @@ video_application.getProcess = function () {
 		.toPrecision(2) + '%';
 }
 
-video_application.setProcess = function (percen_num) {
-	if(percen_num.includes('%')) {
-		percen_num = percen_num.substr(0, percen_num.indexOf('%'));
-	}
-	console.log(percen_num / 100 * video_application.duration);
-	//view to value
-	video_application.currentTime = percen_num / 100 * video_application.duration;
-}
-
-
 // initial process
 const process = document.querySelector('.progress__filled');
 process.style.flexBasis = '0%';
@@ -63,15 +53,21 @@ setInterval(function () {
 }, 1000);
 
 //change
-function changeProcess(e) {
+function updateProcessView(e) {
 	const currWatched = ((e.layerX / process_all.clientWidth) * 100)
 		.toPrecision(2) + '%';
 	process.style.flexBasis = currWatched;
-	video_application.setProcess(currWatched);
 }
+
+function changeProcess(e) {
+	const currWatched = (e.layerX / process_all.clientWidth) * video_application.duration;
+	video_application.currentTime = currWatched;
+}
+
 
 const process_all = document.querySelector('.progress');
 process_all.addEventListener('click', changeProcess);
+video_application.addEventListener('timeupdate', updateProcessView);
 
 
 //range ctrl
@@ -98,7 +94,3 @@ const jump_sec_ctrls = document.querySelectorAll('[data-skip]');
 jump_sec_ctrls.forEach(ctrl =>
 	ctrl.addEventListener('click', skip)
 );
-
-// setInterval(() => {
-// 	console.log(video_application.currentTime);
-// }, 1000);
