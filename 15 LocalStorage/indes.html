@@ -18,7 +18,6 @@
       <p></p>
       <ul class="plates">
         <li>Loading Tapas...</li>
-        <li><input id='1' type="checkbox" name="check" value="" checked/><label for="1">Loading Tapas...</label></li>
       </ul>
       <form class="add-items">
         <input type="text" name="item" placeholder="Item Name" required>
@@ -31,32 +30,40 @@
   const itemsList = document.querySelector('.plates');
   const items = [];
 
-  let a;
 
-  const buttom = document.querySelector('input[type=submit]');
-  const input_text = document.querySelector('input[type=text]');
-
-
-  buttom.addEventListener('click', function(e){
+  addItems.addEventListener('submit', function(e){
     e.preventDefault();
-
-    const lis = itemsList.querySelectorAll('li');
-
-    const li = document.createElement("li");
-
-    const input = document.createElement("input");
-    input.id = lis.length;
-    input.type="checkbox";
-    li.appendChild(input);
-
-    const label = document.createElement("label");
-    label.setAttribute('for', input.id);
-    label.textContent = input_text.value;
-    li.appendChild(label)
-
-    const plates = document.querySelector('.plates');
-    plates.appendChild(li);
+    const text = document.querySelector('input[type=text]').value;
+    const item = {
+      text,
+      done: false
+    };
+    items.push(item);
+    populateList(items, itemsList);
+    this.reset();
   });
+
+  var a ;
+
+  function populateList(plates = [], htmlPlates) {
+    htmlPlates.innerHTML = plates.map((item, i) => {
+      const lis = itemsList.querySelectorAll('li');
+
+      const new_li = document.createElement("li");
+      const input = document.createElement("input");
+      input.id = i;
+      input.checked = item.done;
+      input.type="checkbox";
+      new_li.appendChild(input);
+
+      const label = document.createElement("label");
+      label.setAttribute('for', input.id);
+      label.textContent = item.text;
+      new_li.appendChild(label);
+
+      return new_li.outerHTML;
+    }).join('');
+  }
 
 </script>
 
