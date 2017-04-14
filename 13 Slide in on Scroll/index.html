@@ -88,43 +88,57 @@
     function debounce(func, wait = 20, immediate = true) {
       var timeout;
 
-      console.log('debounce()');
+      // console.log('debounce()');
       //滑一次執行一次A
       return function() {
         // console.log('A() start');
         var context = this, args = arguments; //this = window object
 
+        //最後一次滑動之後執行的內容
         var later = function() {
-          console.log('laterRun() start');
-          timeout = null;//清掉指定的timeout
-          //第一次執行 待會執行清除timeout
-
+          // console.log('laterRun() start');
+          timeout = null;//清掉等待執行數字
           if (!immediate) func.apply(context, args); //沒有要立即執行的就上了
-
-          console.log('laterRun() end');
+          // console.log('laterRun() end');
         };
 
-        var callNow = immediate && !timeout; //立即 && 沒有正在等待執行
-        //第一次執行 callNow = true && !false
+        var callNow = immediate && !timeout;
+        //true = 立即 && 無等待執行(滑動停止，時間間隔到)(每次間隔切換一次)
+        //false = 立即 && 有等待執行(連續滑動中)
+        //false = 不立即 && 無等待執行(滑動停止，時間間隔到)
+        //false = 不立即 && 有等待執行(連續滑動中)
 
+        //連續滑動時，延遲等待執行
         clearTimeout(timeout);//時間還沒到的時候，就等待取消
-        //若有等待執行，就會取消等待執行
-        //第一次執行 取消無效
-        timeout = setTimeout(later, wait);//等待一段 時間執行later, 有設timeout
-        //第一次執行 設定待會執行
-        if (callNow) func.apply(context, args);//如果立即執行，就用像原本這樣執行
-        //第一次執行 用window執行一次func
+        timeout = setTimeout(later, wait); //設定等待執行, 紀錄等待執行數字
 
-        //等一下會執行later
-        // console.log('A() end');
+
+        if (callNow) func.apply(context, args);//如果立即執行，就用像原本這樣執行
       };
     }
+    const positionViewTop = window.scrollY;
+    const positionViewBotton = window.scrollY + window.innerHeight;
+    const sliderImages = document.querySelectorAll('.slide-in');
 
-    const sliderImages = document.querySelectorAll('.slide.in');
     function checkSlide(e) {
-      console.log('run it');
+      sliderImages.forEach(sliderImage => {
+
+        function isInView(element) {
+          const positionMiddleElement = element.offsetTop + element.height / 2;
+          return (positionMiddleImage < positionViewBotton && //image into view
+                 positionMiddleImage > positionViewTop);  //image leave view
+        }
+
+        if (isInView(sliderImage)){
+          sliderImage.classList.add('active');
+        }
+        else {
+          sliderImage.classList.remove('active');
+        }
+      })
     }
-    document.addEventListener('scroll', debounce(checkSlide, 1000));
+    
+    document.addEventListener('scroll', debounce(checkSlide));
 
   </script>
 
