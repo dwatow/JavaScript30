@@ -28,41 +28,52 @@
     <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
 
+  console.log(localStorage.getItem('items'));
+  const items = JSON.parse(localStorage.getItem('items')) || [];
+  populateList(items, itemsList); //update view
 
   addItems.addEventListener('submit', function(e){
     e.preventDefault();
-    const text = document.querySelector('input[type=text]').value;
+    const text = this.querySelector('input[type=text]').value;
     const item = {
       text,
       done: false
     };
     items.push(item);
-    populateList(items, itemsList);
+    populateList(items, itemsList); //update view
+
+    //update labels, so reset Event
+    const labels = itemsList.querySelectorAll('label');
+    labels.forEach(label => label.addEventListener('click', clickModel));
+
+    //update local storage
+    localStorage.setItem('items', JSON.stringify(items));
     this.reset();
   });
 
-  var a ;
-
   function populateList(plates = [], htmlPlates) {
     htmlPlates.innerHTML = plates.map((item, i) => {
-      const lis = itemsList.querySelectorAll('li');
-
-      const new_li = document.createElement("li");
-      const input = document.createElement("input");
-      input.id = i;
-      input.checked = item.done;
-      input.type="checkbox";
-      new_li.appendChild(input);
-
-      const label = document.createElement("label");
-      label.setAttribute('for', input.id);
-      label.textContent = item.text;
-      new_li.appendChild(label);
-
-      return new_li.outerHTML;
+      return `
+      <li>
+        <input type="checkbox" data-index=${i} id="item${i}" ${item.done? 'checked': ''} />
+        <label for="item${i}">${item.text}</label>
+      </li>
+      `;
     }).join('');
+  }
+
+  const labels = itemsList.querySelectorAll('label');
+  labels.forEach(label => label.addEventListener('click', clickModel));
+  function clickModel() {
+    const input = itemsList.querySelector(`#${this.getAttribute('for')}`);
+    items[input.dataset.index].done = !items[input.dataset.index].done;
+
+    localStorage.setItem('items', JSON.stringify(items));
+  }
+
+  function resetLocalStorage() {
+    localStorage.removeItem('items');
   }
 
 </script>
