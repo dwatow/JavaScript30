@@ -1,14 +1,10 @@
 //click view play and pause
 function switchPlayAndPause() {
-	const ctrl = document.querySelector('.player__button[title="Toggle Play"]');
-
 	if(video_application.paused) {
 		video_application.play();
-		ctrl.textContent = '>';
 	}
 	else {
 		video_application.pause();
-		ctrl.textContent = '||';
 	}
 }
 const video_application = document.querySelector('.player__video');
@@ -20,11 +16,12 @@ play_or_pause_ctrl.addEventListener('click', switchPlayAndPause);
 
 //video event update icon
 function updateIcon() {
+	const ctrl = document.querySelector('.player__button[title="Toggle Play"]');
 	if(video_application.paused) {
-		this.textContent = '>';
+		ctrl.textContent = '>';
 	}
 	else {
-		this.textContent = '||';
+		ctrl.textContent = '||';
 	}
 }
 video_application.addEventListener('play', updateIcon);
