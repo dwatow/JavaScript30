@@ -10,7 +10,6 @@
 ```javascript=
 object.style.textShadow = "none|h-shadow v-shadow blur color|initial|inherit"
 ```
-
 ### Mouse Event Coordinate
 
 [測試小頁面](https://dwatow.github.io/coordinate.html)
@@ -33,3 +32,13 @@ object.style.textShadow = "none|h-shadow v-shadow blur color|initial|inherit"
     - 原點: 作業系統畫面(螢幕)的左上角
 - [x](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/x), y
     - client(x, y)的意思, 它只是別名
+
+## 座標轉換
+
+在此有一個盲點，就是width=clientWidth
+花了一點時間弄懂...@@
+
+```javascript
+const xWalk = Math.round((x / width * walk) - (walk / 2));
+const yWalk = Math.round((y / height * walk) - (walk / 2));
+```
