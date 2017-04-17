@@ -51,23 +51,26 @@
       'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans',
       'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+      function strToCode(bandName) {
+        const regex = new RegExp(/the | the|an | an| |a | a*/ig);
+        return bandName.split(regex).join('').charCodeAt()
+      }
+
+      function arrayToHtmlListItem(items) {
+        return items
+        .sort((a, b) => {
+          return strToCode(a) - strToCode(b);
+        })
+        .map(band => {
+          return`
+          <li>
+          ${band}
+          </li>`;
+        }).join('');
+      }
+
     const htmlBands = document.querySelector('#bands');
     htmlBands.innerHTML = arrayToHtmlListItem(bands);
-
-    function arrayToHtmlListItem(items) {
-      return items
-      .sort((a, b) => {
-        const regex = new RegExp(/the | the|an | an| |a | a*/ig);
-        return a.split(regex).join('').charCodeAt() - b.split(regex).join('').charCodeAt();
-      })
-      .map(band => {
-        return`
-        <li>
-          ${band}
-        </li>`;
-      }).join('');
-    }
-
     </script>
 
   </body>
