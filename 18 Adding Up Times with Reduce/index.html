@@ -193,9 +193,11 @@
 
       const timeList = document.querySelectorAll('.videos li');
       const arrayTimes = [...timeList];
-      const totalTime = arrayTimes.reduce((total, everytime) => {
-        // console.log(total);
-        let [minute, second] = everytime.dataset.time.split(':');
+      const totalTime = arrayTimes
+        .map(node => node.dataset.time)
+        .map(time => time.split(':'))
+        .reduce((total, timeArray) => {
+        let [minute, second] = timeArray;
         total[0] += Number(minute);
         total[1] += Number(second);
         return total;
@@ -205,7 +207,7 @@
 
       const second = mod(totalTime[1]);
       const minute = mod(quotient(totalTime[1]) + mod(totalTime[0]));
-      const hour = quotient(totalTime[0]) + quotient(quotient(totalTime[1]) + mod(totalTime[0]));
+      const hour   = quotient(quotient(totalTime[1]) + mod(totalTime[0])) + quotient(totalTime[0]);
 
       console.log(`total: ${hour}:${minute}:${second}`);
 
