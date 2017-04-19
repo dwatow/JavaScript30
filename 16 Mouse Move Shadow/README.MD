@@ -4,7 +4,12 @@
 ### Attribute
 - [`contenteditable`](https://www.w3schools.com/tags/att_global_contenteditable.asp) 可編輯段落
 
+## ES6語法
+
+[JavaScript ES6 中的物件解構賦值（object destructuring）](https://pjchender.blogspot.tw/2017/01/es6-object-destructuring.html)
+
 ## Javascript
+
 ### [`text-shadow`](https://www.w3schools.com/jsref/prop_style_textshadow.asp)
 
 ```javascript=
