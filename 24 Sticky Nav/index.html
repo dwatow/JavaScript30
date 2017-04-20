@@ -105,17 +105,22 @@
       const header = document.querySelector('header');
       const nav = document.querySelector('#main');
       const logo = document.querySelector('.logo');
+      const siteWrap = document.querySelector('.site-wrap');
 
       function fixedNav() {
         const headerRect = header.getBoundingClientRect();
         console.log(headerRect.bottom);
         if (headerRect.bottom < 0) {
-          nav.style.position = 'fixed';
-          logo.style.maxWidth = `${logo.scrollWidth}px`;
+          siteWrap.style.marginTop = `${nav.offsetHeight}px`;
+          // document.body.style.paddingTop = `${nav.offsetHeight}px`;
+
+          document.body.classList.add('fixed-nav');
         }
         else {
-          nav.style.position = 'relative';
-          logo.style.maxWidth = '0';
+          siteWrap.style.marginTop = `0px`;
+          // document.body.style.paddingTop = `0`;
+
+          document.body.classList.remove('fixed-nav');
         }
       }
 
