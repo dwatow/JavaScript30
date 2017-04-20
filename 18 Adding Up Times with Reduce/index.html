@@ -197,7 +197,7 @@
         .map(node => node.dataset.time)
         .map(time => time.split(':'))
         .reduce((total, timeArray) => {
-        let [minute, second] = timeArray;
+        const [minute, second] = timeArray;
         total[0] += Number(minute);
         total[1] += Number(second);
         return total;
