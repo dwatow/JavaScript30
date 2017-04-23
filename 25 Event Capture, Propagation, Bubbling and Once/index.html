@@ -50,17 +50,16 @@
       const divs = document.querySelectorAll('div');
 
       function logText(e) {
-        // e.stopPropagation();
-        console.log(this); //顯示誰被點到
+        e.stopPropagation();
+        console.log(this.classList.value); //顯示誰被點到
+        // console.log(this);
       }
 
-      document.addEventListener('click', logText, { once: true});
-      document.body.addEventListener('click', logTex, {
-        capture:false
-      });
-      divs.forEach(div => div.addEventListener('click', logText), {
-        capture: true
-      });
+      divs.forEach(div => div.addEventListener('click', logText, {
+        capture: false
+      }));
+      // document.addEventListener('click', logText);
+      // document.body.addEventListener('click', logText);
     </script>
   </body>
 </html>
