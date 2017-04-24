@@ -143,8 +143,6 @@
         opacity: 1;
       }
 
-
-
       .dropdownBackground {
         width: 100px;
         height: 100px;
@@ -224,29 +222,45 @@
     </style>
 
     <script>
-      const bubble = document.querySelector('.dropdownBackground');
-      function moveBubble (e) {
+      const triggers = document.querySelectorAll('.cool > li');
+      const background = document.querySelector('.dropdownBackground');
+      const nav = document.querySelector('.top');
+
+      function moveInBubble () {
 
         //trigger
-        bubble.classList.add('open');
-        bubble.classList.add('trigger-enter');
-        bubble.classList.add('trigger-enter-active');
+        this.classList.add('trigger-enter');
+        setTimeout( () => this.classList.contains('trigger-enter') &&this.classList.add('trigger-enter-active'), 150);
+        background.classList.add('open');
+
+        console.log(this);
 
         //remove curr
-        let bubbleContent = bubble.querySelector('.dropdown');
-        console.log(bubbleContent);
-        if (bubbleContent) {
-          bubble.removeChild(bubbleContent);
-        }
+        const dropdown = this.querySelector('.dropdown');
+        const dropdownCoords = dropdown.getBoundingClientRect();
+        const navCoords = nav.getBoundingClientRect();
 
         //add element
-        const dropdownContent = this.nextElementSibling.outerHTML;
-        bubble.innerHTML += dropdownContent;
+        const coords = {
+          height: dropdownCoords.height,
+          width: dropdownCoords.width,
+          top: dropdownCoords.top - navCoords.top,
+          left: dropdownCoords.left - navCoords.left,
+        };
 
-        // console.log(dropdownContent);
+        background.style.setProperty('width', `${coords.width}px`);
+        background.style.setProperty('height', `${coords.height}px`);
+        background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
       }
-      const links = document.querySelectorAll('a');
-      links.forEach(links => links.addEventListener('mouseenter', moveBubble));
+
+      function moveOutBubble () {
+        this.classList.remove('trigger-enter', 'trigger-enter-active');
+        background.classList.remove('open');
+      }
+
+      triggers.forEach(trigger => trigger.addEventListener('mouseenter', moveInBubble));
+      triggers.forEach(trigger => trigger.addEventListener('mouseleave', moveOutBubble));
+
     </script>
 
   </body>
