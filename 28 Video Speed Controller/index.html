@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Video Speed Scrubber</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <video class="flex" width="765" height="430" src="https://www.dropbox.com/s/nf6jfkwck1glsyo/12%20-%20flex-wrapping-and-columns.mp4?dl=1" loop controls></video>
+      <div class="speed">
+        <div class="speed-bar">1×</div>
+      </div>
+    </div>
+
+    <script>
+      const speed = document.querySelector('.speed');
+      const bar = speed.querySelector('.speed-bar');
+      const video = document.querySelector('video');
+
+      let isDown = false;
+      let currY = 0;
+      speed.addEventListener('mouseleave', () => {isDown = false;});
+      speed.addEventListener('mouseup', () => {isDown = false;});
+      speed.addEventListener('mousedown', (e) => { isDown = true;});
+      speed.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const speedMaxY = speed.getBoundingClientRect().height;
+        const y = (e.offsetY / speedMaxY);
+        if (y < 0.08) return;
+        video.playbackRate = y * 4; //0.4~4
+        bar.style.height = `${y * 100}%`;
+        // console.log(e.offsetY, y);
+      });
+
+
+      video.addEventListener('ratechange', function () {
+        bar.textContent = `${this.playbackRate.toPrecision(1)}x`;
+        console.log(this.playbackRate);
+      });
+
+    </script>
+  </body>
+</html>
