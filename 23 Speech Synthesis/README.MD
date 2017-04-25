@@ -11,9 +11,9 @@ const msg = new SpeechSynthesisUtterance();
 
 等一下他要唸語音訊息
 
-`speechSynthesis.getVoices();` 目前可以用的語音服務
-`speechSynthesis.speak(msg);`唸
-`speechSynthesis.cancel();`  停！別唸了
+- `speechSynthesis.getVoices();` 目前可以用的語音服務
+- `speechSynthesis.speak(msg);`唸
+- `speechSynthesis.cancel();`  停！別唸了
 
 ## 較好的寫法
 
