@@ -1,7 +1,9 @@
 # JavaScript30練習筆記
 
 [Javascript30.com](https://javascript30.com/)
+
 [JavaScript30 github](https://github.com/wesbos/JavaScript30)
+
 [Javascript 學習筆記](https://hackmd.io/IYUwHAjCAm0OwFoBsIIFYEBYBmbMICNMCAmBE7bUlCE6AZgKA===#javascript-學習筆記)
 
 # 練習內容
@@ -11,6 +13,7 @@
 ## 各課程學習到的新東西
 
 將新學到的用法，找到w3school的參考頁面放到readme.md中。
+
 並且練習放在index.html
 
 1. [JavaScript Drum Kit](https://github.com/dwatow/JavaScript30/tree/master/01%20JavaScript%20Drum%20Kit)
