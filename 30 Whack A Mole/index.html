@@ -43,11 +43,13 @@
     const hole = document.querySelector(`.hole${indexHold}`);
     const mole = hole.querySelector('.mole');
     mole.style.top = '0%';
+    setTimeout(mole_hidden.bind(mole), 10);
   }
 
   function mole_hidden() {
+    console.log(this);
     this.style.top = '100%';
-    scoreBoard.textContent = score++;
+    scoreBoard.textContent = ++score;
   }
 
   function startGame() {
@@ -55,7 +57,6 @@
       setTimeout(mole_show, (parseInt(Math.random()*10)%10+1)*100);
     }, 1000);
   }
-
   moles.forEach(mole => mole.addEventListener('click', mole_hidden));
 
 
