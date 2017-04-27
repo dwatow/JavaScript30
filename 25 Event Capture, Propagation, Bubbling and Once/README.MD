@@ -1,8 +1,14 @@
-## Javascript
+# 完成目標
+
+這一週，不做漂亮的東西。來細說`addEventListener`吧。
+
+跟著做，就知道了。
+
+# Javascript
 
 細說`addEventListener`
 
-### [`addEventListener`](https://www.w3schools.com/jsref/met_element_addeventlistener.asp)
+## [`addEventListener`](https://www.w3schools.com/jsref/met_element_addeventlistener.asp)
 
 語法:
 ```javascript=

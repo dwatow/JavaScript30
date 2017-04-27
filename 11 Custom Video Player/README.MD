@@ -1,5 +1,25 @@
-## HTML
-- (HTML Audio/Video DOM Reference)[https://www.w3schools.com/tags/ref_av_dom.asp]
+# 完成目標
+
+今天要做一個`HTML5 video`播放器，要試著改變video的預設style。
+
+每一個不同的browser看起來的預設介面都不太相同。
+
+預設介面隱藏控制介面，還會剩下一些調整選項。
+
+- 功能
+  - 和預設介面相同的功能
+    - play、pause、跳到指定時間、音量調整、~~全螢幕~~、播放速度、往前10秒、往後5秒
+- 畫面
+  - 依題目程式碼給的
+    - 縮起來剩下進度條(已給)
+    - Hover整個出現(已給)
+
+
+# HTML
+
+## HTML Video
+
+html tag: (HTML Audio/Video DOM Reference)[https://www.w3schools.com/tags/ref_av_dom.asp]
 
 ### Event
 - click

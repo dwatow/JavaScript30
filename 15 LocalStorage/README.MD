@@ -1,23 +1,36 @@
+# 完成目標
 
-## JavaScript
+今天主要學兩個東西。
+1. localStorage
+2. event delegation
 
-### DOM Object
+- 功能
+  - 做一個可以輸入文字的框，送出之後，新增到上面打勾的選項
+  - 重新整理時，選單不會清空
+- 畫面
+  - 選單的選項前面，要有打勾的功能，並且自訂圖示。
+    - 不打勾: 方塊
+    - 打勾: 一塊"pork taco"
+
+# JavaScript
+
+## DOM Object
 [HTML DOM appendChild() Method](https://www.w3schools.com/jsref/met_node_appendchild.asp) 將node放入node的裡面(下一層)。
 
-### Event Object
+## Event Object
 - [preventDefault() Event Method](https://www.w3schools.com/jsref/event_preventdefault.asp) 取消Event的預設行為
 - [Event.target](https://www.w3schools.com/jsref/event_target.asp) 回傳「觸發了誰」
 
-### label 加入for
+## label 加入for
 ```javascript=
 label.setAttribute('for', input.id);
 ```
 
-### 清空form
+## 清空form
 ```javascript=
 form.reset();
 ```
-### [`localStorage`](https://www.w3schools.com/html/html5_webstorage.asp) 物件
+## [`localStorage`](https://www.w3schools.com/html/html5_webstorage.asp) 物件
 
 `localStorage`比`cookie`更適合拿來做暫存的小空間。
 
@@ -27,9 +40,7 @@ form.reset();
 
 另外還有`sessionStorage`
 
-
-
-### 更棒的寫法
+## 更棒的寫法
 
 原本的寫法
 ```javascript=

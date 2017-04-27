@@ -1,13 +1,28 @@
-## Javascript
+# 完成目標
 
-### 語音訊息
+今天要做語音輸出(speech synthesis)
+
+- 功能
+  - 切換不同的聲音(語系)
+  - 調整說話速度(聲調改變)
+  - 調整咬字速度
+  - 要能輸入要唸的內容
+  - 觸發開始講
+  - 觸發閉嘴
+  - 切換聲音時，會閉嘴再開始講
+- 畫面
+  - 好像沒什麼特別的
+
+# Javascript
+
+## 語音訊息
 ```javascript=
 const msg = new SpeechSynthesisUtterance();
 ```
 `msg.text` 要唸的文字
 `msg.voice` 要用什麼語音服務唸
 
-### 語音服務物件
+## 語音服務物件
 
 等一下他要唸語音訊息
 

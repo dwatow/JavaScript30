@@ -1,6 +1,23 @@
+# 完成目標
 
-## 先來看看
-- [`HTML5 Canvas`](https://www.w3schools.com/html/html5_canvas.asp)
+今天要做一個甜美的 `HTML5 canvas`
+
+- 功能
+  - 可以畫圖的書布
+  - 粗細變化
+  - 顏色變化
+- 畫面
+  - 邊畫邊換色(只有新畫出來的換色)
+  - 邊畫邊換粗細
+  - 停下來，再繼續畫，粗細和顏色與上次停筆相同
+
+# HSL色彩空間
+
+[小工具](http://mothereffinghsl.com/)
+
+# Javascript
+
+## [`HTML5 Canvas`](https://www.w3schools.com/html/html5_canvas.asp)
 
 ```javascript=
 var htmlCanvas = document.getElementById("myCanvas");
@@ -10,9 +27,7 @@ canvasContext.arc(95,50,40,0,2*Math.PI);
 canvasContext.stroke();
 ```
 
-## 小工具
 
-http://mothereffinghsl.com/
 
 ## [CanvasRenderingContext2D](https://developer.mozilla.org/zh-TW/docs/Web/API/CanvasRenderingContext2D)
 

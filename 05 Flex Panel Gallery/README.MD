@@ -1,9 +1,32 @@
-## 學習資源
+# 完成目標
 
-Flex.io
+今天要做一個超級迷人，我喜歡稱之為flex gallery。
 
-## [flex](https://css-tricks.com/almanac/properties/f/flex/)
-`display: flex;`
+沒什麼Javascript、很多的CSS用flexbox、用transitions
+
+- 功能
+  - 點擊指定的區塊要以它為主, 畫面變化
+  - 再點擊一次，恢復原狀
+- 畫面
+  - 主要區塊變大, 中間的字變大
+  - 變大之後上下的字要進來
+
+# CSS
+
+## flexbox
+
+### 學習資源
+
+- [Flex.io](https://www.flex.io/)
+- [FLEX - CSS-TRICKS](https://css-tricks.com/almanac/properties/f/flex/)
+
+## flex
+
+容器要先設定 `display: flex;`
+
+元素要設定`flex: 1 0 auto;`
+
+### flex語法解釋
 
 要解譯這一個之前，必須了解一個詞叫「剩餘空間」([超推薦看!!出處](http://zhoon.github.io/css3/2014/08/23/flex.html))
 

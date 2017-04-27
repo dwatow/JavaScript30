@@ -1,5 +1,15 @@
+# 完成目標
 
-## Javascript
+今天要做地理資訊的功能
+
+- 功能
+  - 抓到指北角度要改畫面
+  - 抓到移動速度要更新畫面
+- 畫面
+  - 指北轉要旋轉
+  - 顯示移動速度
+
+# Javascript
 
 - `window.navigator`
 - `navigator.geolocation`

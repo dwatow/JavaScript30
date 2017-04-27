@@ -1,11 +1,27 @@
+# 完成目標
 
-## Window Event
+今天要做一個slide in on scroll, 捲到特定位置，載入特定圖片
+
+- 功能
+  - 捲到特定位置, 載入特定圖片
+- 畫面
+  - 進入畫面時, 靠左的圖, 從左邊滑入, 靠右邊的圖, 從右邊滑入
+  - 滑入同時, 要從透明漸漸出現
+  - 離開畫面時, 靠左的圖, 從左邊滑出, 靠右邊的圖, 從右邊滑出
+  - 滑入同時, 要從漸漸消失至透明
+
+# Javascript
+
+## Window Event Object
 
 ### Drag Events
 
 - [onscroll](https://www.w3schools.com/tags/ev_onscroll.asp), Script to be run when an element's scrollbar is being scrolled
 
 ## 閉包
+
+滑動延遲反應
+
 ```javascript=
 function debounce(func, wait = 20, immediate = true) {
   var timeout;

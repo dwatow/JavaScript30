@@ -1,10 +1,19 @@
+# 完成目標
 
+使用Webcam來進行一些動作
 
-:::danger
-# 這一關，跳關了QQ
-# 下面有寫原因
-:::
+- 功能
+  - 拍照功能
+  - 拍照檔案儲存.png檔
+  - 拉動上面的range會改變濾鏡參數
+- 畫面
+  - 右上角出現webcam的畫面
+  - 中間的大圖是`canvas`輸出結果
+  - 出現照片縮圖列表
+  - 加上濾鏡(redEffect、rgbSplit、globalAlpha、Green screen)
 
+> 這一關，跳關了QQ
+> 下面有寫原因
 
 ## 蓋一個Web Service
 
