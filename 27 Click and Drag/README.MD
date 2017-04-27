@@ -1,8 +1,17 @@
+# 完成目標
+
+今天來實現拖拉互動的功能。
+
+- 功能
+  - 拖拉互動的功能, 要有拖拉畫面的感覺
+- 畫面
+  - 拖拉的程度，要和畫面移動程度，相同的pixel
+
 
 [`preventDefault()`](https://www.w3schools.com/jsref/event_preventdefault.asp), 取消預設行為
 在此例，好像沒什麼太大明顯的效果
 
-### 以View寬度為滑動寬度
+## 以View寬度為滑動寬度
 ```javascript=
 items.addEventListener('mousemove', scrolling);
 function scrolling (e) {
@@ -12,7 +21,7 @@ function scrolling (e) {
   }
 }
 ```
-### 以滑鼠移動寬度(pixel數)為滑動寬度
+## 以滑鼠移動寬度(pixel數)為滑動寬度
 - 滑鼠點下時
   - 記下目前scroll的絕對位置
   - 記下游標的位置

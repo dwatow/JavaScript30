@@ -1,3 +1,5 @@
+# 完成目標
+
 再看一次[stripe.com](https://stripe.com/)網站，而且它的導覽列的hover效果很厲害
 
 這次來做做它的效果吧！
@@ -9,9 +11,10 @@
   - 滑鼠移開時，白色區塊要消失
   - 白色區塊出現，內容才出現
   - 下拉區塊尚未完全出現，滑鼠移動時，要取消顯示內容
-## Javascript
 
-element.nextElementSibling
+# Javascript
+
+`element.nextElementSibling()`
 下一個element(等同於css selector的`+`)
 
 做hover的效果時
