@@ -41,7 +41,7 @@
 23. [Speech Synthesis](https://github.com/dwatow/JavaScript30/tree/master/23%20Speech%20Synthesis)
 24. [Sticky Nav](https://github.com/dwatow/JavaScript30/tree/master/24%20Sticky%20Nav)
 25. [Event Capture, Propagation, Bubbling and Once](https://github.com/dwatow/JavaScript30/tree/master/25%20Event%20Capture%2C%20Propagation%2C%20Bubbling%20and%20Once)
-26. [Stripe Follow Along Nav](https://github.com/dwatow/JavaScript30)
+26. [Stripe Follow Along Nav](https://github.com/dwatow/JavaScript30/tree/master/26%20Stripe%20Follow%20Along%20Nav)
 27. [Click and Drag](https://github.com/dwatow/JavaScript30/tree/master/27%20Click%20and%20Drag)
 28. [Video Speed Controller](https://github.com/dwatow/JavaScript30/tree/master/28%20Video%20Speed%20Controller)
 29. [Countdown Timer](https://github.com/dwatow/JavaScript30/tree/master/29%20Countdown%20Timer)
