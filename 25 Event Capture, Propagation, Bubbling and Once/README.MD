@@ -23,15 +23,15 @@ element.addEventListener(event, function, useCapture)
 1. Once(new property)
 
 ## 名詞定義
-`bubbling`
-發泡反應 從operator system -> browser application -> tab -> html -> body到你按的element,  都會被觸發事件
-
-browser做的事稱為Capture
-意思是你點擊element, 以top down的順序capture所有的event
-
-
-`event.stopPropagation()`  取消預設(bubbling)行為
-點到誰，就是誰
+- `bubbling` 冒泡(像泡泡在水裡浮上來的過程)
+  從operator system -> browser application -> tab -> html -> body到你按的element, 
+  都會被觸發事件。
+  (但是事件執行順序是從element往上)
+- Capture 捕獲
+  browser做的事稱為Capture
+  意思是你點擊element, 以top down的順序capture所有的event
+- `event.stopPropagation()` 
+  取消預設(bubbling)行為，變成「點到誰，就是誰」
 
 ## 舉例
 
