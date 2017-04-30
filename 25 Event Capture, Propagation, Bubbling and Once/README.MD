@@ -24,14 +24,14 @@ element.addEventListener(event, function, useCapture)
 
 ## 名詞定義
 - `bubbling` 冒泡(像泡泡在水裡浮上來的過程)
-  從operator system -> browser application -> tab -> html -> body到你按的element, 
+  - operator system -> browser application -> tab -> html -> body到你按的element, 
   都會被觸發事件。
-  (但是事件執行順序是從element往上)
+  - 事件預設的執行順序是從element往上到body...
 - Capture 捕獲
-  browser做的事稱為Capture
-  意思是你點擊element, 以top down的順序capture所有的event
+  - browser做的事稱為Capture
+  - 意思是你點擊element, 以top down的順序capture所有的event
 - `event.stopPropagation()` 
-  取消預設(bubbling)行為，變成「點到誰，就是誰」
+  - 取消預設(bubbling)行為，變成「點到誰，就是誰」
 
 ## 舉例
 
