@@ -47,19 +47,52 @@
 
     </button>
     <script>
-      const divs = document.querySelectorAll('div');
+      // const divs = document.querySelectorAll('div');
 
-      function logText(e) {
-        e.stopPropagation();
-        console.log(this.classList.value); //顯示誰被點到
-        // console.log(this);
+      function logTextB(e) {
+        console.log(e.eventPhase);
+        console.log(`bubbling this:`);
+        console.log(this);
+        // console.log(`e.target`);
+        // console.log(e.target);
+        // console.log(`e.currentTarget`);
+        // console.log(e.currentTarget);
       }
 
-      divs.forEach(div => div.addEventListener('click', logText, {
-        capture: false
-      }));
+      function logTextC(e) {
+        console.log(e.eventPhase);
+        console.log(`capture this:`);
+        console.log(this);
+        // console.log(`e.target`);
+        // console.log(e.target);
+        // console.log(`e.currentTarget`);
+        // console.log(e.currentTarget);
+      }
+
+      // divs.forEach(div => div.addEventListener('click', logText, {
+      //   capture: false
+      // }));
+
+      const two = document.querySelector('.two');
+      two.addEventListener('click', logTextC, {capture: true});
+      two.addEventListener('click', logTextB);
+      const three = document.querySelector('.three');
+      three.addEventListener('click', logTextC, {capture: true});
+      three.addEventListener('click', logTextB);
+      const body = document.querySelector('body');
+      body.addEventListener('click', logTextC, {capture: true});
+      body.addEventListener('click', logTextB);
+      const one = document.querySelector('.one');
+      one.addEventListener('click', logTextC, {capture: true});
+      one.addEventListener('click', logTextB);
+      const html = document.querySelector('html');
+      html.addEventListener('click', logTextC, {capture: true});
+      html.addEventListener('click', logTextB);
+
       // document.addEventListener('click', logText);
       // document.body.addEventListener('click', logText);
+
+
     </script>
   </body>
 </html>
