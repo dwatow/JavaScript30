@@ -6,22 +6,19 @@ const snap = document.querySelector('.snap');
 
 
 function getVideo() {
-	//change video srouce, because this laptop without webcame
-	video.src = './Play_fight_of_polar_bears_edit_1.ogv';
-	video.play();
-	//
-	// navigator.mediaDevices.getUserMedia({
-	// 		video: true,
-	// 		audio: false
-	// 	})
-	// 	.then(localMediaStream => {
-	// 		console.log(localMediaStream);
-	// 		video.src = window.URL.createObjectURL(localMediaStream);
-	// 		video.play();
-	// 	})
-	// 	.catch(err => {
-	// 		console.error(`OH NO!!!`, err);
-	// 	});
+	// change video srouce, because this laptop without webcame
+	navigator.mediaDevices.getUserMedia({
+			video: true,
+			audio: false
+		})
+		.then(localMediaStream => {
+			console.log(localMediaStream);
+			video.src = window.URL.createObjectURL(localMediaStream);
+			video.play();
+		})
+		.catch(err => {
+			console.error(`OH NO!!!`, err);
+		});
 }
 
 var video_pid = 0;
