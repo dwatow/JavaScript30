@@ -1,14 +1,15 @@
 # JavaScript30練習筆記
 
-[Javascript30.com](https://javascript30.com/)
+[Javascript30.com](https://javascript30.com/) [[github]](https://github.com/wesbos/JavaScript30)
 
-[JavaScript30 github](https://github.com/wesbos/JavaScript30)
+## 原本的檔案
 
-[Javascript 學習筆記](https://hackmd.io/IYUwHAjCAm0OwFoBsIIFYEBYBmbMICNMCAmBE7bUlCE6AZgKA===#javascript-學習筆記)
+放置在所有課程裡面的`original`的資料夾裡。
 
-# 練習內容
+## 練習內容
 
 [練習記錄@Github](https://github.com/dwatow/JavaScript30/)
+
 [練習成果](https://dwatow.github.io/JavaScript30/)
 
 ## 各課程學習到的新東西
